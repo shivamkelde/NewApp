@@ -11,3 +11,21 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.custom-text {
+  overflow: hidden; /* Hide overflowing text */
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Number of lines to show */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+.limited-height {
+  max-height: 3.6em; /* Adjust based on line height and number of lines */
+  overflow: hidden;
+}
+.custom-input {
+  color: #fff !important; /* Force white text color */
+}
+
+.custom-input::placeholder {
+  color: #bacad9 !important; /* Placeholder color */
+}

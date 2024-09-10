@@ -1,0 +1,36 @@
+<Route path="/business">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>
+<Route path="/entertainment">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>
+<Route path="/general">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>
+<Route path="/healthscience">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>
+<Route path="/sports">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>
+<Route path="/technology">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>
+
+<Route path="/">
+  <div className="container my-5">
+    <News pageSize="{15}" country="in" category="sports" />
+  </div>
+</Route>

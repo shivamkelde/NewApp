@@ -1,25 +1,55 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import News from './Components/News';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import NavB from './Components/Navb';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Country: 'us',
+      Mode:'light',
+    };
+  }
+  
+  componentDidUpdate(prevProps,prevState){
+    if(prevState.Mode!== this.state.Mode){
+      document.body.style.background= this.state.Mode==='light'?'#ffffff':'#292929';
+    }
+  }
+
+  getMode = () => {
+    this.setState(
+      (prevState) => ({ Mode: prevState.Mode === 'light' ? 'dark' : 'light' }),
+      () => console.log('Mode updated:', this.state.Mode) 
+    );
+  };
+
+  setCountry = (newCountry) => {
+    this.setState({ Country: newCountry });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <Router>
+          <NavB setCountry={this.setCountry} Mode={this.state.Mode} getMode={this.getMode} />  
+          <div className="container my-5">
+            <Routes>
+              <Route path="/" element={<News pageSize={15} country={this.state.Country} category="general" Mode={this.state.Mode}  />} />
+              <Route path="/business" element={<News pageSize={15} country={this.state.Country} category="business" Mode={this.state.Mode}  />} />
+              <Route path="/entertainment" element={<News pageSize={15} country={this.state.Country} category="entertainment" Mode={this.state.Mode} />} />
+              <Route path="/science" element={<News pageSize={15} country={this.state.Country} category="science" Mode={this.state.Mode} />} />
+              <Route path="/sports" element={<News pageSize={15} country={this.state.Country} category="sports" Mode={this.state.Mode} />} />
+              <Route path="/technology" element={<News pageSize={15} country={this.state.Country} category="technology" Mode={this.state.Mode}/>} />
+              <Route path="/health" element={<News pageSize={15} country={this.state.Country} category="health" Mode={this.state.Mode} />} />
+            </Routes>
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
