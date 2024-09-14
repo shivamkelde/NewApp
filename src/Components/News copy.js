@@ -35,19 +35,19 @@ export class News1 extends Component {
       }
       const data = await response.json();
       
-      // Handle top_news structure
+      
       if (data && data.top_news && Array.isArray(data.top_news)) {
         const articles = [];
         data.top_news.forEach(newsGroup => {
           if (newsGroup.news && Array.isArray(newsGroup.news)) {
-            articles.push(...newsGroup.news);  // Flatten the articles array
+            articles.push(...newsGroup.news);  
           }
         });
 
         const totalResults = articles.length;
         const totalPages = Math.ceil(totalResults / pageSize);
 
-        // Calculate the articles to display based on the page number
+       
         const startIdx = (page - 1) * pageSize;
         const endIdx = page * pageSize;
 console.log(endIdx);

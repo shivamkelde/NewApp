@@ -11,6 +11,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .custom-text {
   overflow: hidden; /* Hide overflowing text */
   display: -webkit-box;
@@ -29,3 +30,4 @@ code {
 .custom-input::placeholder {
   color: #bacad9 !important; /* Placeholder color */
 }
+
