@@ -12,9 +12,19 @@ class NavB extends Component {
   getNewsByCountry = () => {
     let countryId = document.getElementById('countryListId');
     let countryName = countryId.value;
-    this.props.setCountry(countryName);
-    console.log(countryName);
-    countryId.value=null;
+    let option = document.querySelector(`#countries option[value='${countryName}']`)
+    let country = '';
+    if (option) {
+      country=option.getAttribute('data-value');
+    }
+
+
+    this.props.setCountry(country);
+    console.log('countryName',country);
+    if(country!=='us'){
+      alert("Currently We can't accept Country other than United State");
+    }
+    countryId.value = null;
   };
 
   getBackground = () => {
@@ -32,7 +42,7 @@ class NavB extends Component {
     const iconClass = this.getIcon();
     return (
       <Navbar expand="lg" style={{ background: `${this.props.Mode === 'light' ? '' : 'rgb(66, 66, 66)'}` }}
-        className= {`justify-content-between ${this.props.Mode === 'light' ? 'bg-body-secondary' : ''} `}
+        className={`justify-content-between ${this.props.Mode === 'light' ? 'bg-body-secondary' : ''} `}
         fixed="top">
         <Container>
 
@@ -57,9 +67,9 @@ class NavB extends Component {
 
                 />
                 <datalist id="countries">
-                  <option value="us" />
-                  <option value="in" />
-                  <option value="jp" />
+                  <option value="United States" data-value="us" />
+                  <option value="India" data-value="in" />
+                  <option value="Japan" data-value="jp" />
                 </datalist>
               </Form.Group>
               <Button
