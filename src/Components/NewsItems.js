@@ -17,7 +17,7 @@ const NewsItems = ({ title, description, imageUrl, newsUrl,Mode }) => {
         <Card.Img variant="top" src={imageUrl} alt="image" style={imgStyle} />
         <Card.Body>
           <Card.Title className='text-truncate'>{title}...</Card.Title>
-          <Card.Text className='custom-text limited-height'>{description}</Card.Text>
+          <Card.Text className='custom-text limited-height'>{description}...</Card.Text>
           <a href={newsUrl} target='_blank' rel='noopener noreferrer' className={`btn btn-sm ${Mode==='light'?'btn-primary':'btn-secondary'} `}>
             Read More
           </a>
