@@ -21,7 +21,7 @@ export class News extends Component {
     const { country, category, pageSize } = this.props;
     const { page } = this.state;
     const apiKey = process.env.REACT_APP_NEWS_API_KEY;
-    const url = `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}&category=${category}&pageSize=${pageSize}&page=${page}`;
+    const url = `http://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}&category=${category}&pageSize=${pageSize}&page=${page}`;
     console.log(url);
     try {
       this.setState({ loading: true });
